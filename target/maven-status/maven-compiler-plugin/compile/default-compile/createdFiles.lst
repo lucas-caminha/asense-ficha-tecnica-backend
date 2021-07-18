@@ -1,0 +1,15 @@
+com/br/FichaTecnicaApi/config/CorsConfiguration.class
+com/br/FichaTecnicaApi/config/AuthenticationByTokenFilter.class
+com/br/FichaTecnicaApi/config/TokenService.class
+com/br/FichaTecnicaApi/models/forms/UserForm.class
+com/br/FichaTecnicaApi/config/SecurityConfigurations.class
+com/br/FichaTecnicaApi/controllers/AuthController.class
+com/br/FichaTecnicaApi/repositories/UserRepository.class
+com/br/FichaTecnicaApi/config/AuthenticationService.class
+com/br/FichaTecnicaApi/models/Profile.class
+com/br/FichaTecnicaApi/models/dto/UserDto.class
+com/br/FichaTecnicaApi/models/AppUser.class
+com/br/FichaTecnicaApi/models/dto/TokenDto.class
+com/br/FichaTecnicaApi/FichaTecnicaApiApplication.class
+com/br/FichaTecnicaApi/models/forms/LoginForm.class
+com/br/FichaTecnicaApi/controllers/UserController.class

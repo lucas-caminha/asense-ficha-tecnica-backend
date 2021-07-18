@@ -1,0 +1,15 @@
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/models/AppUser.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/config/SecurityConfigurations.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/config/AuthenticationService.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/controllers/UserController.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/models/dto/UserDto.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/models/forms/UserForm.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/models/forms/LoginForm.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/repositories/UserRepository.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/controllers/AuthController.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/models/dto/TokenDto.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/config/CorsConfiguration.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/FichaTecnicaApiApplication.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/config/TokenService.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/config/AuthenticationByTokenFilter.java
+/home/danilo/code/Projects/ficha-tecnica/ficha-tecnica-api/src/main/java/com/br/FichaTecnicaApi/models/Profile.java
