@@ -1,6 +1,6 @@
 package com.br.FichaTecnicaApi.exception;
 
-public class BusinessException extends Exception {
+public class BusinessException extends RuntimeException {
 
 	/**
 	 * 
