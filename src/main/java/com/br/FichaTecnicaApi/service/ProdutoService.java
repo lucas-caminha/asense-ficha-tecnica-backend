@@ -1,6 +1,7 @@
 package com.br.FichaTecnicaApi.service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.br.FichaTecnicaApi.exception.BusinessException;
 import com.br.FichaTecnicaApi.models.Insumo;
+import com.br.FichaTecnicaApi.models.InsumoProduto;
 import com.br.FichaTecnicaApi.models.Produto;
+import com.br.FichaTecnicaApi.models.dto.InsumoDTO;
 import com.br.FichaTecnicaApi.models.dto.ProdutoDTO;
 import com.br.FichaTecnicaApi.repositories.ProdutoRepository;
 
@@ -20,6 +23,10 @@ public class ProdutoService {
 	
 	public Produto salvaProduto(ProdutoDTO dto) {
 		Produto produto = dto.toEntity();
+		produto.setInsumos(setInsumoProduto(produto, dto.getInsumos()));
+		
+		
+		
 		//BigDecimal somaCusto = somaCusto(dto.getInsumos());
 		//produto.setCustoProduto(somaCusto);
 		
@@ -61,6 +68,14 @@ public class ProdutoService {
 	@SuppressWarnings("unused")
 	private BigDecimal somaLucro(List<Insumo> insumos) {
 		return null;
+	}
+	
+	private List<InsumoProduto> setInsumoProduto(Produto produto, List<InsumoDTO> insumos) {
+		List<InsumoProduto> insumoProdutoList = new ArrayList<InsumoProduto>();
+		for(InsumoDTO dto : insumos) {
+			insumoProdutoList.add(new InsumoProduto(new Insumo(dto.getId(), dto.getQuantidade()), produto, dto.getQuantidade()));
+		}	
+		return insumoProdutoList;
 	}
 	
 }

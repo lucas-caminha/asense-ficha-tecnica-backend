@@ -2,20 +2,23 @@ package com.br.FichaTecnicaApi.models.dto;
 
 import java.math.BigDecimal;
 
-import javax.validation.constraints.NotBlank;
-
 import com.br.FichaTecnicaApi.models.Insumo;
 import com.br.FichaTecnicaApi.models.Medida;
 
 public class InsumoDTO {
 	
-	@NotBlank
+	private Long id;
 	private String nome;
-	@NotBlank
 	private Integer quantidade;
 	private BigDecimal vlCompra;
 	private Medida medida;
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}

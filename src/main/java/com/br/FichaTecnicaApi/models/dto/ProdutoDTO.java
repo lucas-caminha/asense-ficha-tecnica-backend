@@ -1,6 +1,7 @@
 package com.br.FichaTecnicaApi.models.dto;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import com.br.FichaTecnicaApi.models.Produto;
 
@@ -8,11 +9,15 @@ public class ProdutoDTO {
 	
 	private String nome;
 	private BigDecimal vlVenda;
+	private List<InsumoDTO> insumos;
 	
-	public ProdutoDTO(String nome, BigDecimal vlVenda) {
+	public ProdutoDTO(String nome, BigDecimal vlVenda, List<InsumoDTO> insumos) {
 		this.nome = nome;
 		this.vlVenda = vlVenda;
+		this.insumos = insumos;
 	}
+	
+	public ProdutoDTO() {}
 
 	public String getNome() {
 		return nome;
@@ -28,8 +33,13 @@ public class ProdutoDTO {
 
 	public void setVlVenda(BigDecimal vlVenda) {
 		this.vlVenda = vlVenda;
+	}	
+	public List<InsumoDTO> getInsumos() {
+		return insumos;
 	}
-
+	public void setInsumos(List<InsumoDTO> insumos) {
+		this.insumos = insumos;
+	}
 
 	public Produto toEntity() {	
 		return new Produto(nome, vlVenda);

@@ -34,6 +34,11 @@ public class Insumo {
 		this.vlCompra = vlCompra;
 		this.medida = medida;
 	}
+	public Insumo(Long id, Integer quantidade) {
+		super();
+		this.id = id;
+		this.quantidade = quantidade;
+	}
 	
 	public Insumo() {}
 	
