@@ -48,15 +48,21 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     //Authorization configure
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+              http.authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/auth").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/users").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/**").permitAll()
+                .anyRequest().permitAll()
+                .and().csrf().disable();
+
+                
+                /** authenticated()
                 .and().cors()
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().addFilterBefore(new AuthenticationByTokenFilter(tokenService, userRepository),
                 UsernamePasswordAuthenticationFilter.class);
+                **/
     }
 
     // Static resources configuration
