@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.br.FichaTecnicaApi.dto.ProdutoDTO;
 import com.br.FichaTecnicaApi.exception.BusinessException;
 import com.br.FichaTecnicaApi.models.Produto;
+import com.br.FichaTecnicaApi.models.dto.ProdutoDTO;
 import com.br.FichaTecnicaApi.service.ProdutoService;
 
 @RestController

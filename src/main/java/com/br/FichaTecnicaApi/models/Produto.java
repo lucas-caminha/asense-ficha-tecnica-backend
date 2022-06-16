@@ -1,13 +1,15 @@
 package com.br.FichaTecnicaApi.models;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Produto {
@@ -17,16 +19,18 @@ public class Produto {
 	private Long id;
 	private String nome;
 	private BigDecimal vlVenda;
-	@ManyToMany
-	private List<Insumo> insumos;
 	private BigDecimal custoProduto;
 	private BigDecimal lucroProduto;
 	
-	public Produto(String nome, BigDecimal vlVenda, List<Insumo> insumos) {
+	 @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<InsumoProduto> insumos = new ArrayList<>();
+	
+	public Produto(String nome, BigDecimal vlVenda) {
 		this.nome = nome;
 		this.vlVenda = vlVenda;
-		this.insumos = insumos;
 	}
+	
+	public Produto() {}
 	
 	public Long getId() {
 		return id;
@@ -46,10 +50,10 @@ public class Produto {
 	public void setVlVenda(BigDecimal vlVenda) {
 		this.vlVenda = vlVenda;
 	}
-	public List<Insumo> getInsumos() {
+	public List<InsumoProduto> getInsumos() {
 		return insumos;
 	}
-	public void setInsumos(List<Insumo> insumos) {
+	public void setInsumos(List<InsumoProduto> insumos) {
 		this.insumos = insumos;
 	}
 	public BigDecimal getCustoProduto() {

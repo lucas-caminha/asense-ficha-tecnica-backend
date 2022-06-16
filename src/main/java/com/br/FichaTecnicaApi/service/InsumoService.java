@@ -32,7 +32,8 @@ public class InsumoService {
 	}
 	
 	private BigDecimal  custoPorMedida(InsumoDTO dto) {
-		return new BigDecimal(dto.getQuantidade()).divide(dto.getVlCompra());
+		//return new BigDecimal(dto.getVlCompra()).divide(dto.getQuantidade());
+		return null;
 	}
 	
 }

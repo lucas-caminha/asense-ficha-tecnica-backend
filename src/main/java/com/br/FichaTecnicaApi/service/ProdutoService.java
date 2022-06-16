@@ -6,10 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.br.FichaTecnicaApi.dto.ProdutoDTO;
 import com.br.FichaTecnicaApi.exception.BusinessException;
 import com.br.FichaTecnicaApi.models.Insumo;
 import com.br.FichaTecnicaApi.models.Produto;
+import com.br.FichaTecnicaApi.models.dto.ProdutoDTO;
 import com.br.FichaTecnicaApi.repositories.ProdutoRepository;
 
 @Service
@@ -20,8 +20,8 @@ public class ProdutoService {
 	
 	public Produto salvaProduto(ProdutoDTO dto) {
 		Produto produto = dto.toEntity();
-		BigDecimal somaCusto = somaCusto(dto.getInsumos());
-		produto.setCustoProduto(somaCusto);
+		//BigDecimal somaCusto = somaCusto(dto.getInsumos());
+		//produto.setCustoProduto(somaCusto);
 		
 		Produto salvo = produtoRepository.save(produto);
 		if (salvo != null) {

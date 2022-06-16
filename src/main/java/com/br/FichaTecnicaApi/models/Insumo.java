@@ -1,11 +1,16 @@
 package com.br.FichaTecnicaApi.models;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Insumo {
@@ -18,6 +23,10 @@ public class Insumo {
 	private BigDecimal vlCompra;
 	private BigDecimal custoPorMedida;
 	private Medida medida;
+	private LocalDate criadoEm;
+	
+	 @OneToMany(mappedBy = "insumo", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<InsumoProduto> produtos = new ArrayList<>();
 	
 	public Insumo(String nome, Integer quantidade, BigDecimal vlCompra, Medida medida) {
 		this.nome = nome;
@@ -63,6 +72,18 @@ public class Insumo {
 	}
 	public void setCustoPorMedida(BigDecimal custoPorMedida) {
 		this.custoPorMedida = custoPorMedida;
+	}	
+	public List<InsumoProduto> getProdutos() {
+		return produtos;
+	}
+	public void setProdutos(List<InsumoProduto> produtos) {
+		this.produtos = produtos;
+	}
+	public LocalDate getCriadoEm() {
+		return criadoEm;
+	}
+	public void setCriadoEm(LocalDate criadoEm) {
+		this.criadoEm = criadoEm;
 	}
 
 	@Override
