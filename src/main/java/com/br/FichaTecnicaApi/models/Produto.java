@@ -19,6 +19,8 @@ public class Produto {
 	private BigDecimal vlVenda;
 	@ManyToMany
 	private List<Insumo> insumos;
+	private BigDecimal custoProduto;
+	private BigDecimal lucroProduto;
 	
 	public Produto(String nome, BigDecimal vlVenda, List<Insumo> insumos) {
 		this.nome = nome;
@@ -50,5 +52,17 @@ public class Produto {
 	public void setInsumos(List<Insumo> insumos) {
 		this.insumos = insumos;
 	}
-	
+	public BigDecimal getCustoProduto() {
+		return custoProduto;
+	}
+	public void setCustoProduto(BigDecimal custoProduto) {
+		this.custoProduto = custoProduto;
+	}
+	public BigDecimal getLucroProduto() {
+		return lucroProduto;
+	}
+	public void setLucroProduto(BigDecimal lucroProduto) {
+		this.lucroProduto = lucroProduto;
+	}
+
 }

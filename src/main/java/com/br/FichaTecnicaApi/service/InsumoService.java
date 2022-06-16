@@ -1,5 +1,6 @@
 package com.br.FichaTecnicaApi.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,9 @@ public class InsumoService {
 	private InsumoRepository insumoRepository;
 	
 	public Insumo salvaInsumo(InsumoDTO dto) throws BusinessException {
-		Insumo salvo = insumoRepository.save(dto.toEntity());
+		Insumo entity = dto.toEntity();
+		entity.setCustoPorMedida(custoPorMedida(dto));	
+		Insumo salvo = insumoRepository.save(entity);
 		if (salvo != null) {
 			return salvo;
 		}
@@ -26,6 +29,10 @@ public class InsumoService {
 	
 	public List<Insumo> getInsumos(){
 		return insumoRepository.findAll();		
+	}
+	
+	private BigDecimal  custoPorMedida(InsumoDTO dto) {
+		return new BigDecimal(dto.getQuantidade()).divide(dto.getVlCompra());
 	}
 	
 }

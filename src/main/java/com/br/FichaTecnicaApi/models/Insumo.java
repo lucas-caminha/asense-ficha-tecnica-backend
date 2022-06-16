@@ -16,6 +16,7 @@ public class Insumo {
 	private String nome;
 	private Integer quantidade;
 	private BigDecimal vlCompra;
+	private BigDecimal custoPorMedida;
 	private Medida medida;
 	
 	public Insumo(String nome, Integer quantidade, BigDecimal vlCompra, Medida medida) {
@@ -57,11 +58,17 @@ public class Insumo {
 	public void setMedida(Medida medida) {
 		this.medida = medida;
 	}
+	public BigDecimal getCustoPorMedida() {
+		return custoPorMedida;
+	}
+	public void setCustoPorMedida(BigDecimal custoPorMedida) {
+		this.custoPorMedida = custoPorMedida;
+	}
 
 	@Override
 	public String toString() {
 		return "Insumo [id=" + id + ", nome=" + nome + ", quantidade=" + quantidade + ", vlCompra=" + vlCompra
-				+ ", medida=" + medida + "]";
+				+ ", custoPorMedida=" + custoPorMedida + ", medida=" + medida + "]";
 	}
 
 }

@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.br.FichaTecnicaApi.models.Insumo;
 
 @Repository
-public interface InsumoRepository extends JpaRepository<Insumo, Long>{
+public interface InsumoRepository extends JpaRepository<Insumo, Long> {
+	
+
 }
