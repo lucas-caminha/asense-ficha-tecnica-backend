@@ -1,10 +1,10 @@
-package com.br.FichaTecnicaApi;
+package br.com.ftservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FichaTecnicaApiApplicationTests {
+class FTServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

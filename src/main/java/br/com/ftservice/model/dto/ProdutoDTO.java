@@ -7,6 +7,7 @@ import br.com.ftservice.model.Produto;
 
 public class ProdutoDTO {
 	
+	private Long id;
 	private String nome;
 	private BigDecimal vlVenda;
 	private List<InsumoDTO> insumos;
@@ -43,6 +44,14 @@ public class ProdutoDTO {
 
 	public Produto toEntity() {	
 		return new Produto(nome, vlVenda);
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

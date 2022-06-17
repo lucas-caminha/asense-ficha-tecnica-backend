@@ -23,7 +23,15 @@ public class ProdutoService {
 	private InsumoProdutoService insumoProdutoService;
 	@Autowired
 	private InsumoService insumoService;
-
+	
+	public List<Produto> getProdutos(){
+		return produtoRepository.findAll();
+	}
+	
+	public Optional<Produto> findProdutoById(Long id) {
+		return produtoRepository.findById(id);
+	}
+	
 	public Produto salvaProduto(ProdutoDTO dto) {
 		Produto produto = dto.toEntity();	
 		produto.setCustoProduto(somaCusto(dto.getInsumos()));
@@ -34,10 +42,6 @@ public class ProdutoService {
 			return salvo;
 		}
 		throw new BusinessException("Houve um erro ao salvar novo produto.");
-	}
-	
-	public List<Produto> getProdutos(){
-		return produtoRepository.findAll();
 	}
 	
 	public List<Produto> buscaProdutoPorCustoMenorQue(BigDecimal custo){
@@ -69,6 +73,26 @@ public class ProdutoService {
 	
 	private BigDecimal somaLucro(BigDecimal custo, BigDecimal vlVenda) {
 		return vlVenda.subtract(custo);
+	}
+
+	public Produto deletaProduto(Long id) {
+		Optional<Produto> finded = findProdutoById(id);
+		if (finded.isPresent()) {
+			produtoRepository.deleteById(id);
+			return finded.get();
+		}
+		return null;
+	}
+
+	public Produto atualizaProduto(ProdutoDTO dto) {
+		Optional<Produto> finded = findProdutoById(dto.getId());
+		if (finded.isPresent()) {
+			Produto produto = finded.get();
+			produto.setNome(dto.getNome());
+			produto.setVlVenda(dto.getVlVenda());
+			return produto;
+		}	
+		return null;
 	}
 	
 

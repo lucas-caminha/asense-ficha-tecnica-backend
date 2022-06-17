@@ -20,7 +20,6 @@ public class InsumoService {
 	private InsumoRepository insumoRepository;
 	
 	public Insumo salvaInsumo(InsumoDTO dto) throws BusinessException {
-		
 		Insumo entity = dto.toEntity();
 		entity.setCriadoEm(LocalDate.now());
 		entity.setCustoPorMedida(custoPorMedida(dto));	
@@ -41,9 +40,34 @@ public class InsumoService {
 		return insumoRepository.findById(id);
 	}
 	
-	private BigDecimal  custoPorMedida(InsumoDTO dto) {
+	public Insumo deletaInsumo(Long id) {
+		Optional<Insumo> finded = findInsumoById(id);
+		if (finded.isPresent()) {
+			insumoRepository.deleteById(id);
+			return finded.get();
+		}
+		return null;
+	}
+	
+	public Insumo atualizaInsumo(InsumoDTO dto) {
+		Optional<Insumo> finded = findInsumoById(dto.getId());
+		if (finded.isPresent()) {
+			Insumo insumo = finded.get();
+			insumo.setNome(dto.getNome());
+			insumo.setQuantidade(dto.getQuantidade());
+			insumo.setVlCompra(dto.getVlCompra());
+			insumo.setMedida(dto.getMedida());
+			insumoRepository.save(insumo);
+			return insumo;
+		}	
+		return null;
+	}
+	
+	private BigDecimal custoPorMedida(InsumoDTO dto) {
 		BigDecimal vlCompra = dto.getVlCompra();	
 		return vlCompra.divide(new BigDecimal(dto.getQuantidade()));
 	}
+
+
 	
 }
