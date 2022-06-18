@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,8 +43,8 @@ public class ProdutoController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, value = "/remove")
-	public ResponseEntity<Object> removeInsumo(@RequestBody String id) throws BusinessException {
+	@RequestMapping(method = RequestMethod.DELETE, value = "/remove/{id}")
+	public ResponseEntity<Object> removeInsumo(@PathVariable String id) throws BusinessException {
 		Long idLong = Long.parseLong(id);
 		Produto deletado = produtoService.deletaProduto(idLong);
 		if (deletado != null) {
